@@ -1,0 +1,153 @@
+:root {
+    --primary: #068601; /* vert nature */
+    --accent: #ffb703;  /* Jaune soleil */
+    --bg: #f8d4a5;      /* Beige clair (air) */
+    --text: #50C878;    /* vert émerauld */
+    --glass: rgba(255, 255, 255, 0.7);
+    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Application des nouvelles polices */
+* { 
+    margin: 0; padding: 0; box-sizing: border-box; 
+    font-family: 'Comfortaa', cursive; /* Police douce et lisible */
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Caveat', cursive; /* Police style "Îles/Plage" */
+    letter-spacing: 1px;
+}
+
+/* Style spécifique pour le fond de l'Index */
+.hero { 
+    height: 80vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    text-align: center; 
+    /* REMPLACE 'fond-plage.jpg' par le nom de ton image */
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/fond-plage.jpg');
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed; /* Effet parallaxe sympa */
+    color: white;
+    border-radius: 0 0 50px 50px; /* Arrondi doux en bas */
+}
+
+.hero h1 {
+    font-size: 4rem;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.emerald-text {
+    color: var(--accent); /* On utilise le jaune soleil pour faire ressortir */
+    font-size: 1.2em;
+}
+/* NAVBAR UNIFIÉE */
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.5rem 5%; background: var(--glass);
+    backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--text); font-weight: 500; transition: var(--transition); }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+/* BARRE DE RECHERCHE */
+.search-wrapper { max-width: 600px; margin: 2rem auto; padding: 0 20px; }
+#searchInput {
+    width: 100%; padding: 15px 25px; border-radius: 50px;
+    border: 1px solid #ddd; outline: none; transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+#searchInput:focus { border-color: var(--primary); transform: scale(1.02); }
+
+/* CARTES ET SECTIONS */
+.container { max-width: 1100px; margin: auto; padding: 4rem 20px; }
+.section-title { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; }
+.emerald-text { color: var(--primary); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+.card {
+    background: white; padding: 2rem; border-radius: 15px;
+    box-shadow: var(--shadow); transition: var(--transition);
+    border-left: 5px solid var(--primary);
+}
+.card:hover { transform: translateY(-10px); }
+
+.toggle-btn {
+    background: var(--primary); color: white; border: none;
+    padding: 8px 15px; border-radius: 5px; cursor: pointer; margin-top: 1rem;
+}
+
+.content-detail { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #eee; }
+.content-detail.open { display: block; animation: fadeIn 0.5s ease; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* HERO */
+.hero { 
+    height: 80vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+}
+.site-footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 40px 0;
+    margin-top: 50px;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+.footer-section p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #00bfa5;
+}
+
+.footer-social p {
+    font-size: 0.8rem;
+    color: #bdc3c7;
+    margin-top: 10px;
+}
+
+.footer-social a {
+    color: #00bfa5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Adaptation pour mobile */
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
